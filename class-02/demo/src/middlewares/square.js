@@ -1,11 +1,11 @@
-// this way wont work
+// this way wont work [because i have a parameter (3) in the function square where i called it as a param in the route number]
 // module.exports = (req, res, next) => {
 //     req.number = n * n;
 //     next();
 // }
 
 
-// if we have parameters in the middleware 
+// we use this if we have parameters in the middleware 
 // function square(n) {
 //     return (req, res, next) => {
 //         req.number = n * n;
@@ -37,8 +37,9 @@ function square(n) {
             req.number = n * n;
             next();
         } else {
-            next(`this is not a number ${n}`);
+            next(`this is not a number ${n}`); // next cant take anything inside it , if so it will throw an error
         }
     }
 }
+
 module.exports = square;
