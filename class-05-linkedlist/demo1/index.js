@@ -3,7 +3,6 @@
 // //     this.name = name;
 // //     this.legs = legs;
 // // }
-
 // // Animal.prototype.walk = function () {
 // //     this.isWalking = true;
 // //     console.log(`${this.name} is walking`)
@@ -53,11 +52,11 @@
 // let fofo = new Animal('fofo',4);
 // // fofo.walk();
 // // fofo.eat();
-// // console.log(fofo);
+// // console.log(fofo); // here if you dont use fofo.eat for ex it wont add it to the object fofo
 
 // class Dog extends Animal{
 //   constructor(name,legs,breed){
-//     super(name,legs);
+//     super(name,legs); //super means we will use the Animal params
 //     this.breed= breed;
 //   }
 //   speak(){
@@ -70,6 +69,9 @@
 // lili.walk();
 // lili.eat();
 // lili.speak();
+
+//======================= Big O ==========================
+
 
 // let arr = [1,2,3,4,5];
 // // arr[2]=> 3 O(1)
@@ -116,7 +118,8 @@
 // search(45)> number of iterations 14
 // O(n)
 
-// search(32) O(logn)
+// search(32) O(logn)      // in the binary search we divide the array in half then compare the value we are looking for withe the left and the right side of where we devided it,here we consider if we devide the array into two halfs we we consider it as logarothmic O (big O(log(n)))
+
 // O(logn)*O(1)*O(1)*O(1)>> O(logn)
 
 // O(n)
@@ -222,8 +225,8 @@ console.log(getLargestItem([1, 3, 5, 11, 4, 3, 55]));
 
 
 const Linkedlist = require('./lib/LinkedList');
-const ll = new Linkedlist();
-ll.append(1);
+const ll = new Linkedlist(); // here once i create this object it will have head that i put but the head will point to null because the Linked list is still empty so once i create a new node using ll.append(1) it will create a node that pointing to null or pointing to a new Node i create using ll.append(2)
+ll.append(1); //this is for creating new nodes
 ll.append(2);
 ll.append(3);
 
