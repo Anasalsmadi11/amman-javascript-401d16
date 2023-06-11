@@ -11,6 +11,8 @@ class Linkedlist {
         if (!this.head) { //null is a falsy value that means it give false to the null values, and here i need to assign the head value ONLY if it was empty,here if the head has a value that means [this.head] is true thats why i added(!) to be false
             //if the linkedlist is empty
             this.head = newNode; //we are appointing a new value to the head since it is empty
+       
+            // console.log(`${this} this`)
             return this;
         }
         let currentNode = this.head; // i need to add a new node to the linkedlist but i dont no where the current linked list ends so i need to specify it , thats why i start traversing from the start(the head node)

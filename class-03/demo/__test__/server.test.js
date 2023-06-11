@@ -1,6 +1,6 @@
 'use strict';
 const { app } = require('../src/server');
-const { db } = require('../src/models/index');
+const { db } = require('../src/models/index'); //here also we import it from index
 const supertest = require('supertest');
 const mockServerMethods = supertest(app);
 
