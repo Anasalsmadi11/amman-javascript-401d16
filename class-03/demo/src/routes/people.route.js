@@ -39,7 +39,7 @@ async function updatePerson(req, res) {
 async function deletePerson(req, res) {
     let personId = parseInt(req.params.id);
     let deletePerson = await People.destroy({ where: { id: personId } });
-    res.status(204).json(deletePerson);
+    res.status(204).json(deletePerson); //here it shoud be json not sent cus it didnt work
 }
 
 module.exports = peopleRouter;

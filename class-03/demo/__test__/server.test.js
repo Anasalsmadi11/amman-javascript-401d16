@@ -4,7 +4,9 @@ const { db } = require('../src/models/index'); //here also we import it from ind
 const supertest = require('supertest');
 const mockServerMethods = supertest(app);
 
-beforeAll(async () => {
+
+// beforeAll function is a setup function provided by the testing framework (such as Jest), beforeAll is used to synchronize the database (db.sync()) before running the test cases. This ensures that the database schema is created and any necessary migrations or initializations are performed before the tests are executed. 
+beforeAll(async () => { 
     await db.sync();
 });
 
