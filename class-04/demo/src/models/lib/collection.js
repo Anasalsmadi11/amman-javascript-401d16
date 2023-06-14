@@ -25,6 +25,7 @@ class Collection {
         let record = await this.model.destroy({ where: { id: data_id } });
         return record;
     }
+    // this works as well
     // async readCustomerOrders(id) {
     //     let record = await this.model.findAll({
     //         where: { customerId: id }

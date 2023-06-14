@@ -8,6 +8,7 @@ customersRouter.post("/customer", createCustomer);
 customersRouter.put("/customer/:id", updateCustomer);
 customersRouter.delete("/customer/:id", deleteCustomer);
 
+//this also works(uncomment the commented method in the collection)
 // customersRouter.get("/customerOrders/:id", customerOrders);
 // async function customerOrders(req, res) {
 //     const CustomerId = parseInt(req.params.id);

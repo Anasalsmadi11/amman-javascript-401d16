@@ -22,21 +22,29 @@ let sequelizeOptions = process.env.NODE_ENV === "production" ?
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 // let sequelize = new Sequelize(POSTGRES_URI, {});//if we don't have production or testing we can send {}
 
+
+
 const customersTable = customersSchema(sequelize, DataTypes);
 const ordersTable = ordersSchema(sequelize, DataTypes);
+
 
 
 const customerCollection = new Collection(customersTable);
 const orderCollection = new Collection(ordersTable);
 
+
+
+//here customerTable is called the source model and ordersTable is called the target model.
+// The customerTable.hasMany(ordersTable) association means that a One-To-Many relationship exists between customerTable and ordersTable, with the foreign key being defined in the target model (ordersTable).
 customersTable.hasMany(ordersTable, {
-    foreignKey: 'customerId',
+    foreignKey: 'customerId', // the foreignKey's value should exactly be the same as how it was defined in the table of ordersTable
     sourceKey: 'id',
 });
 ordersTable.belongsTo(customersTable, {
     foreignKey: 'customerId',
     targetKey: 'id',
 });
+
 
 module.exports = {
     db: sequelize,
