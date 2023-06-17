@@ -2,7 +2,7 @@
 const Node = require('./Node');
 class Linkedlist {
     constructor() {
-        this.head = null; //the values of the head and the tail are null because the first time i initialize it it will be impty
+        this.head = null; //the values of the head and the tail are null because the first time i initialize it it will be empty
         // this.tail = null;
         // this.size=
     }
@@ -16,7 +16,7 @@ class Linkedlist {
             return this;
         }
         let currentNode = this.head; // i need to add a new node to the linkedlist but i dont no where the current linked list ends so i need to specify it , thats why i start traversing from the start(the head node)
-        while (currentNode.next) { //here the currentNode.next will always be true as long as there is a next node , the last node wont have next (or the next will point to null) which means currentNode.next will be false, i used while not for because i dont know how many nodes i have
+        while (currentNode.next  /*[see the example below]*/) { //here the currentNode.next will always be true as long as there is a next node , the last node wont have next (or the next will point to null) which means currentNode.next will be false, i used while not for because i dont know how many nodes i have
             currentNode = currentNode.next; // here i need to move the current node to the next node
         }
         currentNode.next = newNode; //once i reachd to the last node i need to add the new node i created 
@@ -27,3 +27,29 @@ class Linkedlist {
 
 module.exports = Linkedlist;
 
+
+
+// here an example to simplify things
+let n1={
+    data:100
+}
+let n2={
+    data:200
+}
+n1.next=n2 // next is not a reserved word so i can put whatever the word instead of it
+// n1.nex=n2
+/// result for console appeare in terminal
+console.log(n1)  // { data: 100, next: { data: 200 } }
+// it gave us this result because i added an object to another object like we used to for example:
+let n3={
+    name:"anas",
+    namiwa: "kyoko"
+}
+n3.sureName="alsmadi" // here im adding a new property to an object
+n3["sureName2"]="Otonashi" // here im adding a new property to an object
+console.log(n3) // {
+//     name: 'anas',
+//     namiwa: 'kyoko',
+//     sureName: 'alsmadi',
+//     sureName2: 'Otonashi'
+//   }
