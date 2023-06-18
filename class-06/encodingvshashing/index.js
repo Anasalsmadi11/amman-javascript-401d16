@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const username = "shihab";
 const password = "123";
-
+// you can see the results on terminal using (node index.js or nodemon)
 let encoded = base64.encode(`${username}:${password}`);
 console.log('encoded >>>>> ', encoded);
 
@@ -17,9 +17,9 @@ console.log('decoded >>>>> ', decoded);
 // console.log("mohanad ", mohanad);
 
 let password2 = "abc@#";
-async function encrypt(text) {
+async function encrypt(text) { //it takes time thats why i put async await ,try to remove them it will give you in promise in the terminal
     console.log("text before anything ", text);
-    let hashed = await bcrypt.hash(text, 15);
+    let hashed = await bcrypt.hash(text, 15); // 15 is the complixity you put to hash,the more the number you put the complicated the hash will be
 
     console.log("text after hashing ", hashed);
 
@@ -40,4 +40,7 @@ async function encrypt(text) {
 }
 
 encrypt(password2);
+
+
+
 
