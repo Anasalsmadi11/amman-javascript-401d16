@@ -19,7 +19,7 @@ let sequelizeOptions = process.env.NODE_ENV === "production" ?
     } :
     {}
 
-let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
+let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions); // sequelizeOptions depends on the stage im working on(test, dev, production), i put it in condition where it will be an empty object if im testing, or developing localy
 // let sequelize = new Sequelize(POSTGRES_URI, {});//if we don't have production or testing we can send {}
 
 

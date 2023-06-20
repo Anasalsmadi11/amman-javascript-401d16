@@ -22,10 +22,11 @@ app.post('/signup', async (req, res) => {
 
 app.post('/signin', basic, loginHandler);
 
-app.get('/myOrders', bearer, ordersHandler);
+app.get('/orders', bearer, ordersHandler); // once i hit orders route i need to insert the token generated from the sign up in the bearer in thc to verify it in users.authBearer, 
+// if you have more then one user(more than token) if i put the token of the first user to the second it wont give an error, it will return the data of the first user in the second user object 
 
 function loginHandler(req, res) {
-    res.status(200).json(req.user);
+    res.status(200).json(req.user); // req.user from middleware basic
 }
 
 function ordersHandler(req, res) {
