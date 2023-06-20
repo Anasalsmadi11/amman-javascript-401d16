@@ -31,7 +31,8 @@ app.post('/signup', async (req, res) => {
     let username = req.body.username;
     let hashedPassword = await bcrypt.hash(req.body.password, 5);
     // now to insert the data to db:
-    const record = await users.create({ //here we used to add one property but since there is more than one now(username and password) i need to put them inside an object to send them to database,this is the normal creation of new person where the newPerson is the data that i fill in the body in thc and People is the table that have the data
+    const record = await users.create({ //here we used to add one property but since there is more than one now(username and password) i need to put them inside an object to send them to database,
+        //this is the normal creation of new person where the newPerson is the data that i fill in the body in thc and People is the table that have the data
         // async function createPerson(req, res) {
         //     let newPerson = req.body;
         //     let person = await People.create(newPerson);
@@ -43,7 +44,7 @@ app.post('/signup', async (req, res) => {
     res.status(201).json(record);
 });
 
-// to send the data from front end to back end it is sent from the headers so i need to go to the thc and go to headers to send them but here thc put the Auth in a separate tap so i go to auth then choose basic and send them
+// we send data through the body as we learned and pay attention to the spaces because "anas" is not like "anas " and once we want to check if the username and password are already in the db we go to auth in thc and put the username and password and hit get it will return the data from db
 
 app.get('/signin', async (req, res) => {
     // console.log('headers authorization ', req.headers.authorization); you should put a username and password in the basic to see the result of the console here
@@ -58,7 +59,7 @@ app.get('/signin', async (req, res) => {
         // now i need to split the username:password using distructring the array:
         let [username, password] = decodedValue.split(":");
          // now i need to check if the user exist in the users table         
-const user = await users.findOne({ where: { username: username } }) // here the user is an obj containing username and password properties
+        const user = await users.findOne({ where: { username: username } }) // here the user is an obj containing username and password properties
         // console.log('user from DB ', user);
         const validUser = await bcrypt.compare(password, user.password); //return true or false in the console
         if (validUser) {

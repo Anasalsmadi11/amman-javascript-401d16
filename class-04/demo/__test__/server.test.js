@@ -4,9 +4,9 @@ const { db } = require('../src/models/index');
 const supertest = require('supertest');
 const mockServerMethods = supertest(app);
 
-beforeAll(async () => {
-    await db.sync();
-});
+    beforeAll(async () => {
+        await db.sync();
+    });
 
 describe('testing my server', () => {
     it('return 404 in an invalid routes', async () => {
