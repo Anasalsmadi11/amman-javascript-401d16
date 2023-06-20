@@ -27,6 +27,10 @@ const users = sequelize.define('users', {
 app.get('/', (req, res) => {
     res.status(200).send("hello ");
 })
+app.get('/anything', anythingHandler);
+function anythingHandler(req, res) {
+
+}
 app.post('/signup', async (req, res) => {
     let username = req.body.username;
     let hashedPassword = await bcrypt.hash(req.body.password, 5);
@@ -45,6 +49,7 @@ app.post('/signup', async (req, res) => {
 });
 
 // we send data through the body as we learned and pay attention to the spaces because "anas" is not like "anas " and once we want to check if the username and password are already in the db we go to auth in thc and put the username and password and hit get it will return the data from db
+// app.get('/signin', basicAut, loginHandler);
 
 app.get('/signin', async (req, res) => {
     // console.log('headers authorization ', req.headers.authorization); you should put a username and password in the basic to see the result of the console here
@@ -67,7 +72,6 @@ app.get('/signin', async (req, res) => {
         } else {
             res.status(500).send("wrong username or password");
         }
-
     } else {
         console.log('no user name or password')
     }
