@@ -16,7 +16,8 @@ async function getPeople(req, res) {
 
 async function getPerson(req, res) {
     const personId = parseInt(req.params.id);
-    let person = await People.findOne({ // findOne is also built in method
+    console.log(req.params.id)
+    let person = await People.findOne({ // find.idOne is also built in method
         where: {
             id: personId
         }
@@ -26,9 +27,11 @@ async function getPerson(req, res) {
 
 async function createPerson(req, res) {
     let newPerson = req.body;
+    console.log(req.body)
     let person = await People.create(newPerson);
     res.status(201).json(person);
 }
+
 async function updatePerson(req, res) {
     let personId = parseInt(req.params.id);
     let updatePerson = req.body;
@@ -36,6 +39,9 @@ async function updatePerson(req, res) {
     let updatedPerson = await foundPerson.update(updatePerson);
     res.status(201).json(updatedPerson);
 }
+
+
+
 async function deletePerson(req, res) {
     let personId = parseInt(req.params.id);
     let deletePerson = await People.destroy({ where: { id: personId } });
