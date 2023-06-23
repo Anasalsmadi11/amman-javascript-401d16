@@ -22,6 +22,7 @@ async function customerOrders(req, res) {
     let customerOrdersResult = await CustomerModel.readCustomerOrders(CustomerId, OrderModel.model);
     res.status(200).json(customerOrdersResult);
 }
+
 async function getAllCustomers(req, res) {
     let customersResult = await CustomerModel.read();
     res.status(200).json(customersResult);
@@ -37,6 +38,7 @@ async function createCustomer(req, res) {
     let Customer = await CustomerModel.add(newCustomer);
     res.status(201).json(Customer);
 }
+
 async function updateCustomer(req, res) {
     let CustomerId = parseInt(req.params.id);
     let updateCustomer = req.body;

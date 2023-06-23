@@ -3,7 +3,7 @@ class Collection {
         this.model = model;
     }
     async add(obj) {
-        let newRecord = await this.model.create(obj);
+        let newRecord = await this.model.create(obj);// here i put this instead of Customer(the table) cus there maybe another table(i want to generalize it to all models)
         return newRecord;
     }
     async read(data_id) {
