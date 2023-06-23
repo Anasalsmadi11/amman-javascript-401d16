@@ -11,10 +11,18 @@ const users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+        get() {
+            const dataValue = this.getDataValue('username');
+            return dataValue.toUpperCase();
+        }
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+        set(value) {
+            const hash = bcrypt.hashSync(value, 5);
+            this.setDataValue('password', hash);
+        }
     },
     token: {
         type: DataTypes.VIRTUAL, // it will add a virtual column in the users table but you wont be able to see it cus it will delete it once the session is over

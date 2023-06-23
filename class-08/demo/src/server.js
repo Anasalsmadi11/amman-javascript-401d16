@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const basic = require('./middlewares/basicAuth');
 const bearer = require('./middlewares/bearerAuth');
+const acl = require('./middlewares/acl');
 
 const bcrypt = require('bcrypt');
 const app = express();
@@ -11,10 +12,11 @@ const users = require('./models/users.model');
 
 app.post('/signup', async (req, res) => {
     // let username = req.body.username;
-    // let hashedPassword = await bcrypt.hash(req.body.password, 5);
+    let hashedPassword = await bcrypt.hash(req.body.password, 5);
     const record = await users.create({
         username: req.body.username,
-        password: req.body.password
+        password: hashedPassword,
+        role: req.body.role,
     });
     res.status(201).json(record);
 });
@@ -22,11 +24,17 @@ app.post('/signup', async (req, res) => {
 
 app.post('/signin', basic, loginHandler);
 
-app.get('/orders', bearer, ordersHandler); // once i hit orders route i need to insert the token generated from the sign up in the bearer in thc to verify it in users.authBearer, 
-// if you have more then one user(more than token) if i put the token of the first user to the second it wont give an error, it will return the data of the first user in the second user object 
+app.get('/myOrders', bearer, ordersHandler);
+
+
+
+app.get('/img', bearer, acl('read'), imageHandler);
+app.post('/img', bearer, acl('create'));
+app.put('/img', bearer, acl('update'));
+app.delete('/img', bearer, acl('delete'), imageDeleteHandler);
 
 function loginHandler(req, res) {
-    res.status(200).json(req.user); // req.user from middleware basic
+    res.status(200).json(req.user);
 }
 
 function ordersHandler(req, res) {
@@ -36,4 +44,10 @@ function ordersHandler(req, res) {
     });
 }
 
+function imageHandler(req, res) {
+    res.status(200).json('you have the access');
+}
+function imageDeleteHandler(req, res) {
+    res.status(200).json('you have the access');
+}
 module.exports = app;
