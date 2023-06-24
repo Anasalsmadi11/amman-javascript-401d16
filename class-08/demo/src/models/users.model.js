@@ -6,11 +6,16 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET_DATA;
 const { sequelize, DataTypes } = require('./index');
 
+// any change you make in the table you should drop the table 
 const users = sequelize.define('users', {
     username: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false, 
         unique: true,
+        // get(){
+        //     const dataValue= this.getDataValue("username") //dataValue is built in, also the username wont be stored in db in uppercase
+        //     return dataValue.toUpperCase()
+        // } 
     },
     password: {
         type: DataTypes.STRING,
@@ -29,11 +34,14 @@ const users = sequelize.define('users', {
                 editor: ['read', 'create', 'update'],
                 admin: ['read', 'create', 'update', 'delete']
             }
-            return acl[this.role];
+            return acl[this.role]; // here bracket notation is important we cant use dot
         }
     },
     token: {
         type: DataTypes.VIRTUAL,
+        // get(){ // this wont store the token in the db, its function is to (get) back the token once i signup
+        //     return jwt.sign({ username: this.username, password: this.password }, SECRET);
+        // }
     }
 });
 
@@ -45,7 +53,7 @@ users.authBasic = async function (username, password) {
     if (validUser) {
         let newToken = jwt.sign({ username: user.username, password: user.password }, SECRET);
         user.token = newToken;
-        return user;
+        return user; // this to return the user in thc once you hit the signin route
     } else {
         throw new Error("invalid user");
     }

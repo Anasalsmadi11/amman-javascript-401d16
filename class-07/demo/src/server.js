@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 const users = require('./models/users.model');
 
-app.post('/signup', async (req, res) => {
+app.post('/signup', async (req, res) => { // here post not because im adding somthing to the db but because im sending sensitive info
     // let username = req.body.username;
     // let hashedPassword = await bcrypt.hash(req.body.password, 5);
     const record = await users.create({

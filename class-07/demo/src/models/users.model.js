@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET_DATA;
 const { sequelize, DataTypes } = require('./index');
 
+// any change you make in the table you should drop the table 
 const users = sequelize.define('users', {
     username: {
         type: DataTypes.STRING,
@@ -42,7 +43,7 @@ users.authBasic = async function (username, password) { //asynd cus this func wi
         // the main purpose of the token is that the website dosent require me to log in every time i hit a route, the existance of the token means im logged in
         let newToken = jwt.sign({ username: user.username, password: user.password }, SECRET); // the sign method is to generate the token
         user.token = newToken;
-        return user;
+        return user; // this to return the user in thc once you hit the signin route
     } else {
         throw new Error("invalid user");
     }
