@@ -17,7 +17,7 @@ class Queue {
     }
     enqueue(value) {
         const newNode = new Node(value);
-        if (this.isEmpty()) {
+        if (this.isEmpty()) { // i used this to isEmpty cus isEmpty is part of the class
 
             this.front = newNode;
             this.rear = newNode;
@@ -42,11 +42,13 @@ class Queue {
         return temp.value;
     }
     peek() {
-        if (this.isEmpty()) {
+        if (this.isEmpty()) { // here i peek in the front 
             return null;
         }
         return this.front.value;
     }
 
 }
+
+
 module.exports = Queue;

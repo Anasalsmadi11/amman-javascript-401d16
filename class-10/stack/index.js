@@ -1,6 +1,7 @@
 const Stack = require('./Stack');
 
 
+
 const newStack = new Stack();
 
 
@@ -15,5 +16,5 @@ console.log(newStack.peek());
 newStack.pop();
 console.log(newStack.peek());
 
-console.log('pop item', newStack.pop());
+console.log('poped item', newStack.pop());
 console.log(newStack.peek());
