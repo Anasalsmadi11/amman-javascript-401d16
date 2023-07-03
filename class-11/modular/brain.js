@@ -10,6 +10,6 @@ require('./arms/arms.js');
 // events.emit('light', { brightness: 95 });
 
 
-events.on('light-detected', (payload) => {
+events.on('light-detected', (payload) => { /// in terminal using nodemon wont work, use node and this file's name
     events.emit('light', { brightness: payload })
 })
