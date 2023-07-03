@@ -31,13 +31,13 @@ eventsPool.emit('hi', 'shihab');
 // });
 
 let counter = 0;
-eventsPool.once('increment', counterHandler);
+eventsPool.once('increment', counterHandler); //using once means i will emit the event once,here it will print 1 only
 function counterHandler() {
     counter++;
     console.log('counter', counter);
 }
 
-eventsPool.emit('increment');
+eventsPool.emit('increment'); //counter 1
 eventsPool.emit('increment');
 eventsPool.emit('increment');
 eventsPool.emit('increment');
