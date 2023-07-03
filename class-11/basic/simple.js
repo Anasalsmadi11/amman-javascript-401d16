@@ -8,7 +8,7 @@ const eventsPool = new Events();
 // eventsPool.emit
 // eventsPool.once
 
-eventsPool.on('hi', hiEventHandler);
+eventsPool.on('hi', hiEventHandler); /// with this i regist a new event called hi
 eventsPool.on('hi', hiEventHandler2);
 
 
