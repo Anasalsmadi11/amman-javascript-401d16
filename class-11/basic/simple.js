@@ -30,6 +30,23 @@ eventsPool.emit('hi', 'shihab');
 //     grade: 89
 // });
 
+// 1- eventsPool.on('hi', hiEventHandler);: This line sets up an event listener for the 'hi' event on the eventsPool object. It specifies that whenever the 'hi' event is triggered, the hiEventHandler function should be called.
+
+// 2- function hiEventHandler(payload) { ... }: This is the definition of the hiEventHandler function, which takes a payload as a parameter. In this case, the payload is expected to be a string.
+
+// 3- eventsPool.emit('hi', 'shihab');: This line emits (triggers) the 'hi' event on the eventsPool object. It includes the payload 'shihab', which will be passed as an argument to the event handler function.
+
+// 4-  //When the 'hi' event is emitted, the hiEventHandler function is executed. It logs a message to the console, using the payload value to indicate where the message is coming from. In this case, it will log "hi from shihab" to the console.
+
+ //To summarize, the code sets up an event listener for the 'hi' event and defines a function to handle that event. When the 'hi' event is emitted with the payload 'shihab', the event handler function is called, and it logs a message to the console.
+
+
+
+
+
+
+
+
 let counter = 0;
 eventsPool.once('increment', counterHandler); //using once means i will emit the event once,here it will print 1 only
 function counterHandler() {
