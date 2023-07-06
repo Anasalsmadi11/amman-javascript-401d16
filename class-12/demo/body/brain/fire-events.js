@@ -7,3 +7,5 @@ const brainConnection = io.connect(host);
 
 
 brainConnection.emit('light')
+
+/// fire-event is responsible of emitting the events, notice it is in the brain folder

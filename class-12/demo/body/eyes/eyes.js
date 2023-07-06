@@ -13,3 +13,8 @@ function handleBrightness(payload) {
         console.log('close your eyes');
     }
 }
+
+
+
+
+// brainConnection.emit('light') // if i want to send a message from eyes(client) to brain(server) i should put the triggering(emit) in the file where i would send the message from

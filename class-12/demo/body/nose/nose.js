@@ -2,7 +2,7 @@
 require('dotenv').config();
 const port = process.env.PORT || 3030;
 const io = require('socket.io-client');
-let host = `http://localhost:${port}/health-system`;
+let host = `http://localhost:${port}/health-system`; // here i put the name space 
 const healthConnection = io.connect(host);
 
 healthConnection.on('flu-waring', (payload) => {
