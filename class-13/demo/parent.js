@@ -8,6 +8,8 @@ const socket = client.connect(host);
 // socket.emit('new_task', 'eat your food');
 // socket.emit('new_task', 'go to school');
 
+//or:++++++++++++++++++++++++++++++++++
+
 // setInterval(() => {
 //     socket.emit('new_task', 'clean your room');
 // }, 4000)
@@ -18,11 +20,14 @@ const socket = client.connect(host);
 //     socket.emit('new_task', 'go to school');
 // }, 4000)
 
+//or:++++++++++++++++++++++++++++++++++
+
 // const tasks = ['clean your room', 'eat your food', 'go to school'];
 
 // tasks.forEach((task) => {
 //     socket.emit('new_task', task);
 // })
+// ++++++++++++++++++++++++++++
 
 socket.on('added', (payload) => {
     console.log(`Thank you for adding : ${payload} to the msgQueue.`)
@@ -36,8 +41,11 @@ socket.on('added', (payload) => {
 //     'clean your room',
 //     'eat your food'
 //   ]
-const values = process.argv.splice(2);
-// console.log('values from terminal ', values);
+
+//or: ++++++++++++++++++++++++++++++++++
+const values = process.argv.splice(2); // this is if i want to add the task directly from terminal and read from it,, see the screenshot
+// console.log('values from terminal ', values); // ['clean your room','eat your food']
 values.forEach((task) => {
     socket.emit('new_task', task);
 })
+// ++++++++++++++++++++++++++++
