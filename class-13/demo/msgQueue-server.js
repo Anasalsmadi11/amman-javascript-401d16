@@ -57,3 +57,4 @@ family.on('connection', (socket) => {
     })
 
 });
+// Scenario: first split the terminal screen to three parts then and always start the server(node msgQueue.js), now if you start the parent first that means the child still disconnected when the parent issue the tasks, so once the child is connected it will trigger the event get all then from the server it will go straight to line that have  socket.on('get_all', etc.. and get the tasks as follows, if you started the child first that means once the parent is connected it will issue the tasks (emit new_task) and from the server , the server will send through family.emit('task' etc...  the tasks to all children that are currently connected and here the get_all has already been emited and found no tasks and that cuz  the parent wasnt connected
