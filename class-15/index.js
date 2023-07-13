@@ -43,7 +43,7 @@ six.right = seven;
 seven.left = eight;
 seven.right = nine;
 
-tree = new BinaryTree(one);
+tree = new BinaryTree(one); //if you want to put a parameter here you should put a parameter in the constructor
 
 let preOrder = tree.preOrder();
 let inOrder = tree.inOrder();
@@ -53,3 +53,14 @@ let postOrder = tree.postOrder();
 console.log('preOrder: ', preOrder);
 console.log('inOrder: ', inOrder);
 console.log('postOrder: ', postOrder);
+
+
+
+// let recursion=(x)=>{
+//     console.log(x)
+//     if(x<=5 && x>0) recursion(x-1)
+// if(x=5 ){
+//     console.log("x value",x)
+// }
+// }
+// recursion(5)
