@@ -4,6 +4,7 @@ class BinaryTree {
         this.root = root; // here i put the root cuz when i create the tree it will have at least a root
     }
     preOrder() {
+         // i didnt add any new Node cuz here i dont want to add , i just want to traverse throught the array
         let result = []; // cuz i want to return my tree in an array
         let traverse = (node) => {
             result.push(node.value);
