@@ -35,6 +35,8 @@
 // // rex.eat();
 
 // //in ES6
+
+
 // class Animal{
 //   constructor(name,legs){
 //     this.name= name;
