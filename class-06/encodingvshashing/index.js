@@ -9,6 +9,7 @@ const password = "123";
 let encoded = base64.encode(`${username}:${password}`);
 console.log('encoded >>>>> ', encoded);
 
+
 let decoded = base64.decode(encoded)
 console.log('decoded >>>>> ', decoded);
 
@@ -19,14 +20,14 @@ console.log('decoded >>>>> ', decoded);
 let password2 = "abc@#";
 async function encrypt(text) { //it takes time thats why i put async await ,try to remove them it will give you in promise in the terminal
     console.log("text before anything ", text);
-    let hashed = await bcrypt.hash(text, 15); // 15 is the complixity you put to hash,the more the number you put the complicated the hash will be
+    let hashed = await bcrypt.hash(text, 15); // 15 is the complixity you put to hash, once you write the hash method see the pop up box you will see what it takes as paramerters and you will see that this method is a promise 
 
     console.log("text after hashing ", hashed);
 
     let p1 = '$2b$05$xJ0fXpsRP/FsjhJjVIAob.IbnANsAiPoaa9CMj7VxprTn7DvPIo6C';
     let p2 = '$2b$05$r911ku8OkVdjVXGXk4q1N.ZtIQSpdPLd.xB2w6csb6sw/0DhSZ276';
 
-    let isValid1 = await bcrypt.compare(text, p1);
+    let isValid1 = await bcrypt.compare(text, p1)
     let isValid2 = await bcrypt.compare(text, p2);
 
 
@@ -40,7 +41,6 @@ async function encrypt(text) { //it takes time thats why i put async await ,try 
 }
 
 encrypt(password2);
-
 
 
 

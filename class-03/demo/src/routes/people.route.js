@@ -17,7 +17,7 @@ async function getPeople(req, res) {
 async function getPerson(req, res) {
     const personId = parseInt(req.params.id);
     console.log(req.params.id)
-    let person = await People.findOne({ // find.idOne is also built in method
+    let person = await People.findOne({ // findOne is also built in method
         where: {
             id: personId
         }
@@ -35,7 +35,7 @@ async function createPerson(req, res) {
 async function updatePerson(req, res) {
     let personId = parseInt(req.params.id);
     let updatePerson = req.body;
-    let foundPerson = await People.findOne({ where: { id: personId } });
+    let foundPerson = await People
     let updatedPerson = await foundPerson.update(updatePerson);
     res.status(201).json(updatedPerson);
 }
@@ -47,5 +47,4 @@ async function deletePerson(req, res) {
     let deletePerson = await People.destroy({ where: { id: personId } });
     res.status(204).json(deletePerson); //here it shoud be json not sent cus it didnt work
 }
-
 module.exports = peopleRouter;
