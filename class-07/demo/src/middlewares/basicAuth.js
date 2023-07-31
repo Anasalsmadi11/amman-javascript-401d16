@@ -13,7 +13,7 @@ function basic(req, res, next) {
         Users.authBasic(username, password)
             .then((data) => { //cus authBasic is a promise func
                 console.log(data);
-                req.user = data; // i need to attch the data to the user ,the data have the username and the password and the token
+                req.user = data;// here req is an object so i need to add a new property to it called user and give the value "data" which contain the username, password and token
                 next();
             }).catch((error) => {
                 next('invalid Login');

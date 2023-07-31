@@ -66,7 +66,8 @@ app.get('/signin', async (req, res) => {
         
         // now i need to split the username:password using distructring the array:
         let [username, password] = decodedValue.split(":");
-         // now i need to check if the user exist in the users table         
+        console.log("------->", username, password)
+        // now i need to check if the user exist in the users table         
         const user = await users.findOne({ where: { username: username } }) // here the left username is the property that existed in the users model and the right one is the one i defined it two lines
         // console.log('user from DB ', user);
         const validUser = await bcrypt.compare(password, user.password); // this to compare the password i enter in the Auth -> basic in thc , here also i cant switch between the places of password and user.password cuz after writing the compare see the pop up box you'll see that the string is first param and the encrypted is the second param

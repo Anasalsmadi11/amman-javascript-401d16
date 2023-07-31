@@ -12,10 +12,10 @@ const users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-        get() {
-            const dataValue = this.getDataValue('username');
-            return dataValue.toUpperCase();
-        }
+        // get() {
+        //     const dataValue = this.getDataValue('username');
+        //     return dataValue.toUpperCase();
+        // }
     },
     password: {
         type: DataTypes.STRING,
@@ -51,7 +51,7 @@ users.authBasic = async function (username, password) { //asynd cus this func wi
 
 
 
-// this is to check if the user have the token withen it or not ,if found, there is no need to ask the user to sign in or even sign up  every time he hit the route 
+// this is to check if the user have the token withen it or not ,if found, there is no need to ask the user to sign in or every time he hit a route 
 users.authBearer = async function (token) {
     const parsedToken = jwt.verify(token, SECRET);
     console.log('**************', parsedToken)
