@@ -8,11 +8,10 @@ function App() {
         <>
             <h1>Hello Everyone</h1>
 
-            <button onClick={() => setHide(!hide)}>
+            <button onClick={() => setHide(!hide)}> {/* either put it like anonymos function if you want to use it once or declare a function before the return and put the function name here without the anonymous function */}
                 {!hide && 'Hide Counter'}
                 {hide && 'Show Counter'}
             </button >
-
             {!hide && <Counter />
             }
         </>
@@ -20,3 +19,4 @@ function App() {
 }
 
 export default App;
+

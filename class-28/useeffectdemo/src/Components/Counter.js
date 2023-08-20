@@ -8,6 +8,8 @@
 //         </>
 //     )
 // }
+
+
 import React, { Component } from "react";
 class Counter extends Component {
     constructor(props) {
@@ -21,19 +23,22 @@ class Counter extends Component {
             counter: this.state.counter + 1
         });
     }
-    componentDidMount() {
+    componentDidMount() { // these three Mounting methods are built-in methods ONLY in class based componenets
         console.log('the component mounted!!')
     }
     componentDidUpdate() {
         console.log(`you clicked ${this.state.counter} of time(s)`)
     }
-    componentWillUnmount() {
+    componentWillUnmount() { // when i click hide it removes the componenet from the DOM
         console.log('unmounted')
     }
+
+   
     render() {
         return (
             <>
-                <h2>class based Counter loaded</h2>
+            {/* { console.log("hello;")} */}
+                <h2>class based Counter loaded {Math.floor(Math.random()*100)}</h2> {/* here as you can see the random number change every time i hit the clicks button, that means it re-render the whole return every time i hit clicks but it mount the component once i load the component the first time */ }
                 <p>number of clicks {this.state.counter}</p>
                 <button onClick={() => this.increaseCount()}>
                     click me!!

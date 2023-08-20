@@ -10,6 +10,7 @@ function People() {
         e.target.reset();
         // var names = ['shihab', 'malek', 'saeed'];
         // var numbers = ['1', '2'];
+        // console.log(...numbers)
         // var newValues = ['a','b',...numbers,'1','1'];
         // console.log(newValues)>>>>
         // ['a','b','1', '2','1','1']
@@ -44,3 +45,4 @@ function People() {
 }
 
 export default People;
+
