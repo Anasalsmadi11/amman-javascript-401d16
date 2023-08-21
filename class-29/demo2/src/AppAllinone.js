@@ -21,10 +21,12 @@ function PeopleReducer(state = initialState, action) {
 
         case 'REMOVE':
             const count3 = state.count - 1;
-            const people3 = state.people.filter((person) => person !== payload)
+            // const people3= state.people.splice(state.people.indexOf(payload),1) // this if you want to delete a repeated value
+            const people3 = state.people.filter((person) => person !== payload) // person is each index of the people array
             return {
                 count: count3,
                 people: people3
+                // people: state.people // this for the commented people3 
             }
         case 'EMPTY':
             return initialState;
@@ -88,3 +90,4 @@ function App() {
 
 
 export default App;
+

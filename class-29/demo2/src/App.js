@@ -1,3 +1,5 @@
+// if you want for this app to be carried out instead of AllAllinon uncoumment it from the index.js
+
 import React, { useReducer } from 'react';
 // const initialState = {
 //     count: 0,
