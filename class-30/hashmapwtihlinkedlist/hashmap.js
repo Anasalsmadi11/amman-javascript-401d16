@@ -49,8 +49,8 @@ class Hashmap {
         const hash = this.makeHash(key);
         if(!this.map[hash]){
             this.map[hash] = new LinkedList();
-        }
-
+        }  // here beware of putting else here it wont work unless you put  this.map[hash].append({ [key]: value }) inside the if statement too 
+// console.log(this.map[hash].hea)
         this.map[hash].append({ [key]: value })
     }
 }
@@ -66,6 +66,6 @@ myHashmap.add("samah", "401d15 student");
 myHashmap.add("laith", "401d15 student");
 myHashmap.add("shihab", "401d15 student");
 
-myHashmap.map.forEach((ll) => {
+myHashmap.map.forEach((ll) => { /// notice here the map is not the method,rather it is the array i defined above
     console.log(ll.print());
 })
