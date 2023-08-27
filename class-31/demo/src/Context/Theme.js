@@ -1,7 +1,7 @@
 import React from "react";
-export const ThemeContext = React.createContext();
+export const ThemeContext = React.createContext(); // creatContext() is a built-in method in react 
 export default class Theme extends React.Component {
-    constructor(props) {
+    constructor(props) { // i put constructor only if i have props
         super(props);
         this.state = {
             mode: 'dark',
@@ -21,3 +21,4 @@ export default class Theme extends React.Component {
         )
     }
 }
+

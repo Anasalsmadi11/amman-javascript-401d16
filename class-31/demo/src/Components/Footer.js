@@ -4,7 +4,10 @@ import { ThemeContext } from '../Context/Theme';
 import { SettingsContext } from '../Context/Site';
 import { useContext } from 'react';
 
-export default function Footer(props) {
+// the differnce between function based components and class based components (like Footer and Content) in getting the data from more than context component
+
+
+export default function Footer() {
     const site = useContext(SettingsContext);
     const theme = useContext(ThemeContext);
 
@@ -23,3 +26,4 @@ export default function Footer(props) {
         </>
     )
 }
+
