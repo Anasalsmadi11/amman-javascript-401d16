@@ -7,11 +7,13 @@ export default function Content(props) {
     const theme = useContext(ThemeContext);
 
     // const titleHandler = (e) => {
-    //     site.setTitle(e.target.value)
+    //     site.setTitle(e.target.title.value) // you cant put e.target.reset(); on onChange methods
     // }
     // const twitterHandler = (e) => {
-    //     site.setTwitter(e.target.value);
+    //     site.setTwitter(e.target.twitter.value);
     // }
+
+
     const submitHandler = (e) => {
         e.preventDefault();
         site.setTitle(e.target.title.value);
@@ -27,16 +29,23 @@ export default function Content(props) {
                     <a href={`http://www.twitter.com/${site.twitter}`}> @{site.twitter}</a>
                 </div>
             </div>
-            <form onSubmit={submitHandler}>
+{/*  the difference between onChange and onSubmit, the commented one is the onChange*/}
+            {/* <form> */}
+          <form onSubmit={submitHandler}>
                 <label>title</label>
                 {/* <input type="text" onChange={titleHandler} placeholder="title" /> */}
-                <input type="text" placeholder="title" name="title" />
-
+                <input type="text"  placeholder="title"  name="title" />
+       
+                
                 <label>twitter</label>
                 {/* <input type="text" onChange={twitterHandler} placeholder="twitter" /> */}
-                <input type="text" placeholder="twitter" name="twitter" />
+               <input type="text"  placeholder="twitter" name="twitter" />
+
                 <input type="submit" />
             </form>
+
+ 
+
             <h2>
                 Current Mode:{theme.mode}
             </h2>
