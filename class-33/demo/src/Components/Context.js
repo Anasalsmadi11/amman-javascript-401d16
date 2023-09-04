@@ -12,7 +12,7 @@ const API = `https://midproject.onrender.com`
 export default function LoginProvider(props) {
     const [loginStatus, setLoginStatus] = useState(false);
     
-    const [user, setUser] = useState({ username: cookie.load('username') || ''});
+    const [user, setUser] = useState({ username: cookie.load('username'),capabilities: cookie.load('capabilities')});
 
 
 // scenairo: once the loginFunction is triggered it send the login data to the backend and then these data go through the basicAuth and Users.authBasic to check if the user exist in the DB and then return the data if existed
@@ -47,7 +47,7 @@ const loginFunction = async (username, password) => { // check the basicAuth fun
             console.log('user token', user.token)
             // const userFromToken = base64.decode(user.token);
             const userFromToken = jwt_decode(user.token);
-
+           
             console.log('user >>>>> ', userFromToken);
             setLoginStatus(true); // this to make the form disappear once i logged in
             setUser(userFromToken);
@@ -57,6 +57,7 @@ const loginFunction = async (username, password) => { // check the basicAuth fun
             cookie.save('username', userFromToken.username); // we put user twice cus the ones who did the user in the backend the returned the user inside a user object
             cookie.save('capabilities', user.user.capabilities);
             cookie.save('token', user.token);
+
         } else {
             setLoginStatus(false);
             setUser({})
