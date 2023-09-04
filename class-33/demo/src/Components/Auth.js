@@ -10,10 +10,10 @@ export default class Auth extends React.Component {
 
     render() {
         const cod1 = this.context.loginStatus;
-        const cod2 = this.context.can(this.props.action)
+        const cod2 = this.context.can(this.props.action) // if the user role is user it will give false for the action updatee and delete
         return (
             <When condition={cod1 && cod2}>
-                {this.props.children}
+                {this.props.children} 
             </When>
         )
     }
