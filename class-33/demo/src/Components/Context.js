@@ -14,7 +14,7 @@ export default function LoginProvider(props) {
     
     const [user, setUser] = useState({ username: cookie.load('username'),capabilities: cookie.load('capabilities')});
 
-
+ 
 // scenairo: once the loginFunction is triggered it send the login data to the backend and then these data go through the basicAuth and Users.authBasic to check if the user exist in the DB and then return the data if existed
 // the space after the Basic is very important
 //.set(headerName, headerValue) is a method provided by the superagent library to set an HTTP header in the request being constructed.
