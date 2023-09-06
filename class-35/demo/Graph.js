@@ -3,13 +3,21 @@ const Vertex = require('./Vertex');
 const Edge = require('./Edge');
 class Graph {
     constructor() {
-        this.adjacencyList = new Map();
+        this.adjacencyList = new Map();   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+        //  we are using three Map methods here:
+        //  set: sets a new value
+        //  has: check if the value exists
+        //  get: get s avalue by its key
     }
-    addVertex(vertex) {
-        this.adjacencyList.set(vertex, []);
+
+    addVertex(vertex) {    
+       //                 // in the read there is a type of graphs called adjacency list and it consist of key and value
+        this.adjacencyList.set(vertex, []);  // set takes(key,value)
     }
-    addDirectedEdge(start, end, weight) {
-        if (!this.adjacencyList.has(start) || !this.adjacencyList.has(end)) {
+
+                 // each edge connects between two vertexes,and the weight is the weight of the edge
+    addDirectedEdge(start, end, weight) { // here it means by start ,the firt vertex the edge starts from
+        if (!this.adjacencyList.has(start) || !this.adjacencyList.has(end)) { // has is a built-in method in Map(built in too)
             console.log(`vertex does not exist`)
             return;
         }
@@ -41,7 +49,7 @@ myGraph.addVertex(three);
 myGraph.addVertex(four);
 myGraph.addVertex(five);
 
-console.log(myGraph);
+// console.log(myGraph);
 
 
 myGraph.addDirectedEdge(zero, five);
@@ -63,4 +71,6 @@ console.log("after", myGraph);
 
 for (const [k, v] of myGraph.adjacencyList.entries()) {
     console.log('k=> ', k, 'v=> ', v);
+    
 }
+
