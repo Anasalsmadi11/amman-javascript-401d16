@@ -8,7 +8,8 @@ const Status = (props) => {
         </>
     )
 }
-const mapStateToProps = state => ({
+         // this function is to to accsess the state
+const mapStateToProps = (state) => ({ /// mapStateToProps naming is mandatory  
     myCounter: state.myCounterReducer
     // myCounter: state.shihab go to store/index line 4
 })

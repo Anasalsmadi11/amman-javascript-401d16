@@ -7,7 +7,7 @@ let initialState = {
     ],
     totalVotes: 0
 }
-export default (state = initialState, action) => {
+export default (state = initialState, action) => { // useReducer function
     const { type, payload } = action;
     switch (type) {
         case 'INCREMENT':
@@ -20,10 +20,10 @@ export default (state = initialState, action) => {
                     }
                 }
                 else {
-                    return candidate;
+                    return candidate; // this return will break the loop only,and the excution will continue to what after the loop
                 }
             });
-            return {
+            return { // this return is from the switch , i return smth in each case
                 totalVotes: newTotalVotes,
                 candidates: newCandidates
             }

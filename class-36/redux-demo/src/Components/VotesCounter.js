@@ -28,6 +28,6 @@ const VotesCounter = (props) => {
 const mapStateToProps = (state) => ({
     myCounter: state.myCounterReducer
 })
-const mapDispatchToProps = { increment, reset };
+const mapDispatchToProps = { increment, reset }; // this to dispatch
 
 export default connect(mapStateToProps, mapDispatchToProps)(VotesCounter);
