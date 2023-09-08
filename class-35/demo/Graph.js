@@ -22,7 +22,7 @@ class Graph {
             return;
         }
         else {
-            const adjacencies = this.adjacencyList.get(start);
+            const adjacencies = this.adjacencyList.get(start); // get method will get the value of the vertex start wich is [] as we declared in line 15
             let edge = new Edge(end, weight);
             adjacencies.push(edge);
         }
