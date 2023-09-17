@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { add, remove, getRemoteData } from '../store/people.store';
 const People = (props) => {
     const [name, setName] = useState('');
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         let username = e.target.username.value;
@@ -10,8 +11,9 @@ const People = (props) => {
         props.add(username);
         e.target.reset();
     }
+
     const handleChange = (e) => {
-        setName(e.target.value);
+        // setName(e.target.value);
     }
     return (
         <>
